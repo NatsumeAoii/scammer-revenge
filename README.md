@@ -1,59 +1,110 @@
-# Panduan Instalasi dan Penggunaan
+<h1 align="center">
+   Scammer Revenger
+</h1>
 
-Bot ini dirancang untuk memberikan respons otomatis terhadap tautan mencurigakan yang terdapat dalam file `url.txt` dengan menggunakan API Telegram dan Node.js. Bot ini bertujuan untuk membebani server scammer dengan permintaan spam sebagai bentuk pembalasan.
+<p align="center">
+  <img src="https://img.shields.io/github/forks/NatsumeAoii/Scammer-Revenger?style=flat-square">
+  <img src="https://img.shields.io/github/license/NatsumeAoii/Scammer-Revenger?style=flat-square">
+  <img src="https://img.shields.io/github/last-commit/NatsumeAoii/Scammer-Revenger?style=flat-square">
+  <img src="https://img.shields.io/github/stars/NatsumeAoii/Scammer-Revenger?style=flat-square">
+</p>
 
-## Persyaratan Sistem
+Scammer Revenger is a Node.js application designed to automate the process of sending messages to a list of URLs, typically used for disrupting scam operations or overwhelming scam communication channels. NOW BEGINNER's FRIENDLY!
 
-- Node.js versi terbaru
-- Akun Telegram dan token API bot Telegram
+## Installation
 
-## Instalasi
+Before you begin the installation process for Scammer Revenger, ensure that you have Node.js and npm (Node Package Manager) installed on your system. These are essential for running the application and managing its dependencies.
 
-Ikuti langkah-langkah berikut untuk menginstal dan menyiapkan bot:
+### Prerequisites
 
-1. **Kloning Repository**
+- **Node.js**: Scammer Revenger is a Node.js application, so you must have Node.js installed. You can download and install Node.js from the official [Node.js](https://nodejs.org/) Website.
+- **npm**: npm is distributed with Node.js, which means that when you download Node.js, you automatically get npm installed on your computer. npm is used to install the dependencies that Scammer Revenger requires.
 
-   Pertama, kloning repository GitHub ini ke sistem lokal Anda menggunakan perintah berikut:
+<details>
+  <summary><b>Step-by-Step Installation</b></summary>
+  
+  1. **Clone the Repository**: Use `git` to clone the Scammer Revenger repository to your local machine. If you don't have `git` installed, you can download it from [the Git website](https://git-scm.com/).
+  
+      Open your terminal (Command Prompt, PowerShell, Terminal, etc.) and run the following command:
+  
+      ```bash
+      git clone https://github.com/NatsumeAoii/Scammer-Revenger.git
+      ```
+  
+      This command creates a copy of the Scammer Revenger repository in a new folder called `Scammer-Revenger` on your computer.
+  
+  2. **Navigate to the Project Directory**: Change your current working directory to the `Scammer-Revenger` folder that was just created by the `git clone` command.
+  
+      ```bash
+      cd Scammer-Revenger
+      ```
+  
+  3. **Install Dependencies**: Run the `npm install` command to install all the necessary dependencies that are listed in the `package.json` file. These dependencies are required for Scammer Revenger to function properly.
+  
+      ```bash
+      npm install
+      ```
+  
+      This command reads the `package.json` file and installs all the dependencies specified there. It may take a few moments to complete.
 
-   ```
-   git clone https://github.com/malvinval/scammer-revenge/
-   ```
+</details>
 
-2. **Instalasi Dependensi**
+After completing those steps, you will have Scammer Revenger and all its dependencies installed on your system. You are now ready to configure and run the application as per the usage instructions provided in the README.
 
-   Setelah kloning selesai, navigasikan ke direktori proyek dan jalankan perintah berikut untuk menginstal semua dependensi yang diperlukan:
+## Usage
 
-   ```
-   npm install
-   ```
+1. Populate the `urls.txt` file with the target URLs.
+2. Customize the `customText` variable in the script with your message.
+3. Run the script:
 
-## Eksekusi
-
-Untuk menjalankan bot, gunakan perintah berikut di terminal atau command prompt:
-
-```
+```bash
 node app.js
 ```
 
-Pastikan Anda berada di direktori yang sama dengan file `app.js` saat menjalankan perintah ini.
+The script will continuously send the custom message to the list of URLs and provide feedback on the status of each message sent.
 
-## Fitur
+## Changelog
 
-Bot ini dilengkapi dengan beberapa fitur utama, antara lain:
-
-- **Counter Attack (Spam) via API Telegram**: Bot akan mengirimkan sejumlah besar permintaan ke API Telegram yang ditargetkan sebagai bentuk serangan balik terhadap scammer.
+<details>
+  <summary><b>2024-12-05</b></summary>
   
-- **Pembuatan Daftar Target**: Anda dapat menentukan daftar API Telegram yang ingin dijadikan target dalam sebuah file `.txt`. Formatnya memungkinkan Anda untuk dengan mudah menambah atau menghapus target.
+  #### Added
+  - Automatic installation of missing modules (like `axios`).
+  - Graceful shutdown handling for `CTRL+C` and `CTRL+Z`.
   
-- **Pengiriman Permintaan Serentak**: Bot mampu mengirim permintaan ke beberapa API secara bersamaan, meningkatkan efektivitas serangan balik.
+  #### Changed
+  - Improved signal handling for better cross-platform compatibility.
+</details>
 
-## Konfigurasi
+<details>
+  <summary><b>2024-10-03</b></summary>
+  
+  #### Added
+  - Support for reading multiple URLs from a file.
+  - Customizable message text.
+  - Error handling and status reporting for each message sent.
+  - Continuous operation with the ability to run indefinitely.
+  
+  #### Changed
+  - Refactored code to use modern JavaScript async/await syntax.
+  - Replaced single hardcoded URL with a dynamic list of URLs.
+  - Improved error handling to provide more detailed feedback.
+  
+  #### Removed
+  - Redundant calls to `sendMessage()` function.
+</details>
 
-Sebelum menjalankan bot, Anda perlu melakukan beberapa konfigurasi:
+<details>
+  <summary><b>2023-12-01</b></summary>
+  - Initial release with basic functionality to send a message to a single hardcoded URL using Telegram's API.
+</details>
 
-1. **Token API Telegram**: Dapatkan token API untuk bot Telegram Anda dan masukkan ke dalam file `url.txt`.
+## License
 
-2. **Daftar URL Target**: Isi file `url.txt` dengan daftar URL API Telegram yang ingin Anda serang. Pastikan setiap URL berada di baris baru.
-   ```
-   https://api.telegram.org/XXXXXXXXXXX/sendMessage?parse_mode=markdown&chat_id=XXXXXX&text=
-   ```
+Scammer Revenger is released under the MIT License. See the [LICENSE](https://github.com/NatsumeAoii/Scammer-Revenger?tab=MIT-1-ov-file#) file for more details.
+
+## Disclaimer
+
+This tool is intended for educational and ethical purposes only. Users should ensure their actions comply with local laws and regulations regarding digital communications and cybersecurity.
+
+Original Repository: [Scammer-Revenge](https://github.com/malvinval/scammer-revenge)
